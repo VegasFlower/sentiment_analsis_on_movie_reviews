@@ -1,7 +1,5 @@
 import numpy as np
 import pandas as pd
-import os
-import re
 import nltk
 nltk.download('punkt')
 import tensorflow
@@ -90,15 +88,6 @@ model.compile(loss='categorical_crossentropy',optimizer=opt,metrics=['accuracy']
 model.summary()
 
 history=model.fit(X_train, y_train, validation_data=(X_val, y_val),epochs=6, batch_size=256, verbose=1)
-
-epoch_count = range(1, len(history.history['loss']) + 1)
-
-plt.plot(epoch_count, history.history['loss'], 'r--')
-plt.plot(epoch_count, history.history['val_loss'], 'b-')
-plt.legend(['Training Loss', 'Validation Loss'])
-plt.xlabel('Epoch')
-plt.ylabel('Loss')
-plt.show()
 
 y_pred = np.argmax(model.predict(X_test), axis=-1)
 

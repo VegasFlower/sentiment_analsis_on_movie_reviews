@@ -20,3 +20,4 @@ The sentiment labels are:
 3 - somewhat positive
 4 - positive
 
+To reduce size of data to less than 2 MB, I cut off small portions of data from both train.tsv and test.tsv, so the actual time cost now might be lower than what I recorded in report.
